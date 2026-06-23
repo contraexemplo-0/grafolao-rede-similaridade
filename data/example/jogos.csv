@@ -1,0 +1,5 @@
+jogo_id,num,rodada,fase,grupo,time_a,time_b,data_hora,status
+J001,1,Rodada 1,GRUPOS,A,Time Azul,Time Branco,2026-06-11 15:00:00,ENCERRADO
+J002,2,Rodada 1,GRUPOS,A,Time Verde,Time Amarelo,2026-06-12 15:00:00,ENCERRADO
+J003,3,Rodada 2,GRUPOS,B,Time Vermelho,Time Preto,2026-06-16 18:00:00,ENCERRADO
+J004,4,Rodada 2,GRUPOS,B,Time Roxo,Time Cinza,2026-06-17 18:00:00,ENCERRADO

@@ -1,0 +1,272 @@
+{
+  "gerado_em": "2026-06-22T03:51:19",
+  "output_dir": "outputs\\final_theta_0_20",
+  "theta_experimental": 0.2,
+  "theta_referencia_estrita": 0.5,
+  "dados_experimento": {
+    "participantes_validos": 135,
+    "jogos_validos": 33,
+    "palpites_validos": 1113,
+    "resultados_validos": 33,
+    "media_palpites_por_participante": 8.244444444444444,
+    "mediana_palpites_por_participante": 4.0,
+    "min_palpites_por_participante": 1,
+    "max_palpites_por_participante": 33,
+    "participantes_com_1_palpite": 25,
+    "participantes_com_ate_4_palpites": 78
+  },
+  "metricas_globais": {
+    "vertices": 135,
+    "arestas": 479,
+    "densidade": 0.0529574350469872,
+    "componentes": 93,
+    "maior_componente": 43,
+    "grau_medio": 7.0962962962962965,
+    "forca_media": 2.244444444444444,
+    "peso_medio_arestas": 0.3162839248434237,
+    "agrupamento_medio": 0.1217130858813656,
+    "distancia_media_maior_componente": 1.0419456189805023,
+    "diametro_maior_componente": 2.371212121212121
+  },
+  "componentes": [
+    {
+      "tamanho_componente": 1,
+      "quantidade_componentes": 92,
+      "quantidade_vertices_total": 92
+    },
+    {
+      "tamanho_componente": 43,
+      "quantidade_componentes": 1,
+      "quantidade_vertices_total": 43
+    }
+  ],
+  "comunidades_maior_componente": [
+    {
+      "comunidade": 1,
+      "tamanho": 24,
+      "arestas_internas": 196,
+      "densidade_interna": 0.7101449275362319,
+      "forca_media": 8.393860479797981,
+      "pagerank_total": 0.4890596899871539,
+      "participante_mais_central": "P126",
+      "pagerank_participante_mais_central": 0.0320595281826693
+    },
+    {
+      "comunidade": 2,
+      "tamanho": 19,
+      "arestas_internas": 78,
+      "densidade_interna": 0.4561403508771929,
+      "forca_media": 5.344597288676236,
+      "pagerank_total": 0.2679121005781161,
+      "participante_mais_central": "P013",
+      "pagerank_participante_mais_central": 0.0312833944148593
+    }
+  ],
+  "ranking_top_10": [
+    {
+      "posicao": 1,
+      "participante_id": "P126",
+      "pagerank": 0.0320595281826693,
+      "grau": 36,
+      "forca": 13.081439393939396,
+      "betweenness": 0.0088093367747727,
+      "comunidade": 1
+    },
+    {
+      "posicao": 2,
+      "participante_id": "P013",
+      "pagerank": 0.0312833944148593,
+      "grau": 36,
+      "forca": 13.212121212121213,
+      "betweenness": 0.0060599259342385,
+      "comunidade": 2
+    },
+    {
+      "posicao": 3,
+      "participante_id": "P015",
+      "pagerank": 0.0311922281180304,
+      "grau": 32,
+      "forca": 13.721590909090908,
+      "betweenness": 0.0081921220962854,
+      "comunidade": 1
+    },
+    {
+      "posicao": 4,
+      "participante_id": "P099",
+      "pagerank": 0.0306096449111316,
+      "grau": 33,
+      "forca": 12.02840909090909,
+      "betweenness": 0.0089776680507238,
+      "comunidade": 1
+    },
+    {
+      "posicao": 5,
+      "participante_id": "P116",
+      "pagerank": 0.0289702794440711,
+      "grau": 33,
+      "forca": 12.551136363636363,
+      "betweenness": 0.0014588710582426,
+      "comunidade": 1
+    },
+    {
+      "posicao": 6,
+      "participante_id": "P092",
+      "pagerank": 0.0287644438003031,
+      "grau": 33,
+      "forca": 11.962121212121213,
+      "betweenness": 0.0044327236000448,
+      "comunidade": 1
+    },
+    {
+      "posicao": 7,
+      "participante_id": "P081",
+      "pagerank": 0.0274549247708563,
+      "grau": 32,
+      "forca": 11.928030303030305,
+      "betweenness": 0.0010099876557064,
+      "comunidade": 1
+    },
+    {
+      "posicao": 8,
+      "participante_id": "P131",
+      "pagerank": 0.027148073441796,
+      "grau": 33,
+      "forca": 11.58901515151515,
+      "betweenness": 0.0016833127595107,
+      "comunidade": 1
+    },
+    {
+      "posicao": 9,
+      "participante_id": "P111",
+      "pagerank": 0.0270488802159114,
+      "grau": 34,
+      "forca": 11.448863636363637,
+      "betweenness": 0.0015710919088766,
+      "comunidade": 2
+    },
+    {
+      "posicao": 10,
+      "participante_id": "P007",
+      "pagerank": 0.026941015180623,
+      "grau": 33,
+      "forca": 11.598484848484848,
+      "betweenness": 0.000168331275951,
+      "comunidade": 1
+    }
+  ],
+  "analise_sensibilidade_disponivel": true,
+  "analise_sensibilidade": [
+    {
+      "theta": 0.2,
+      "vertices": 135,
+      "arestas": 479,
+      "densidade": 0.0529574350469872,
+      "componentes": 93,
+      "maior_componente": 43,
+      "grau_medio": 7.0962962962962965,
+      "forca_media": 2.244444444444444,
+      "peso_medio_arestas": 0.3162839248434237,
+      "agrupamento_medio": 0.1217130858813656,
+      "quantidade_comunidades": 94,
+      "quantidade_cliques_maximais": 29,
+      "palpiteiro_mais_central": "P126",
+      "pagerank_palpiteiro_mais_central": 0.0320595281826693
+    },
+    {
+      "theta": 0.3,
+      "vertices": 135,
+      "arestas": 215,
+      "densidade": 0.0237700386954118,
+      "componentes": 105,
+      "maior_componente": 31,
+      "grau_medio": 3.185185185185185,
+      "forca_media": 1.2801346801346798,
+      "peso_medio_arestas": 0.4019027484143764,
+      "agrupamento_medio": 0.1063552317976864,
+      "quantidade_comunidades": 106,
+      "quantidade_cliques_maximais": 23,
+      "palpiteiro_mais_central": "P015",
+      "pagerank_palpiteiro_mais_central": 0.0441848653413636
+    },
+    {
+      "theta": 0.4,
+      "vertices": 135,
+      "arestas": 101,
+      "densidade": 0.0111663902708678,
+      "componentes": 117,
+      "maior_componente": 19,
+      "grau_medio": 1.4962962962962962,
+      "forca_media": 0.7030864197530864,
+      "peso_medio_arestas": 0.4698844884488447,
+      "agrupamento_medio": 0.0775146921601603,
+      "quantidade_comunidades": 118,
+      "quantidade_cliques_maximais": 13,
+      "palpiteiro_mais_central": "P015",
+      "pagerank_palpiteiro_mais_central": 0.0487517861699635
+    },
+    {
+      "theta": 0.5,
+      "vertices": 135,
+      "arestas": 28,
+      "densidade": 0.0030956329463792,
+      "componentes": 124,
+      "maior_componente": 12,
+      "grau_medio": 0.4148148148148148,
+      "forca_media": 0.22665544332211,
+      "peso_medio_arestas": 0.5464015151515152,
+      "agrupamento_medio": 0.0497212611718359,
+      "quantidade_comunidades": 126,
+      "quantidade_cliques_maximais": 8,
+      "palpiteiro_mais_central": "P015",
+      "pagerank_palpiteiro_mais_central": 0.0574503433821617
+    },
+    {
+      "theta": 0.6,
+      "vertices": 135,
+      "arestas": 2,
+      "densidade": 0.000221116639027,
+      "componentes": 133,
+      "maior_componente": 3,
+      "grau_medio": 0.0296296296296296,
+      "forca_media": 0.0198092031425364,
+      "peso_medio_arestas": 0.6685606060606061,
+      "agrupamento_medio": 0.0,
+      "quantidade_comunidades": 133,
+      "quantidade_cliques_maximais": 2,
+      "palpiteiro_mais_central": "P015",
+      "pagerank_palpiteiro_mais_central": 0.0638544815343827
+    }
+  ],
+  "figuras_finais": [
+    "figuras/analise_sensibilidade_limiar.png",
+    "figuras/distribuicao_palpites_participante.png",
+    "figuras/distribuicao_tamanho_componentes_melhorado.png",
+    "figuras/tamanho_comunidades_maior_componente.png",
+    "figuras/grafo_maior_componente_comunidades.png",
+    "figuras/grafo_maior_componente_filtrado.png",
+    "figuras/heatmap_similaridade_ordenado.png",
+    "figuras/ranking_centralidade_pagerank_melhorado.png"
+  ],
+  "arquivos_gerados": {
+    "graphml": "outputs\\final_theta_0_20\\grafos\\grafo_final.graphml",
+    "json_grafo": "outputs\\final_theta_0_20\\grafos\\grafo_final.json",
+    "relatorio_md": "outputs\\final_theta_0_20\\resumo\\relatorio_final.md",
+    "relatorio_json": "outputs\\final_theta_0_20\\resumo\\relatorio_final.json",
+    "validacao_txt": "outputs\\final_theta_0_20\\resumo\\validacao_final.txt",
+    "validacao_json": "outputs\\final_theta_0_20\\resumo\\validacao_final.json"
+  },
+  "interpretacao_critica": [
+    "A rede final usa theta = 0.20 como escolha experimental para os dados reais.",
+    "O projeto preserva THETA_SIMILARIDADE = 0.50 como referencia estrita e valor padrao.",
+    "A rede real ficou fragmentada, com muitas componentes unitarias.",
+    "A maior componente contem duas comunidades principais no recorte final.",
+    "A fragmentacao esta associada a participacao irregular e a penalizacao por cobertura.",
+    "PageRank mede centralidade estrutural na rede de similaridade, nao pontuacao tradicional."
+  ],
+  "limitacoes": [
+    "A an\u00e1lise usa apenas jogos encerrados com resultado e pelo menos um palpite.",
+    "Participantes com poucos palpites tendem a ter baixa cobertura nas compara\u00e7\u00f5es.",
+    "Comunidades representam estrutura de similaridade, n\u00e3o rela\u00e7\u00f5es sociais ou causalidade.",
+    "O grafo filtrado para visualiza\u00e7\u00e3o n\u00e3o altera as m\u00e9tricas calculadas no grafo final."
+  ]
+}

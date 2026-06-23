@@ -1,0 +1,17 @@
+{
+  "data_dir": "data/processed",
+  "output_dir": "outputs/final_theta_0_20",
+  "theta": 0.2,
+  "quantidade_participantes": 135,
+  "quantidade_jogos": 33,
+  "quantidade_palpites": 1113,
+  "vertices": 135,
+  "arestas": 479,
+  "densidade": 0.052957435046987286,
+  "componentes": 93,
+  "maior_componente": 43,
+  "quantidade_comunidades": 94,
+  "quantidade_cliques_maximais": 29,
+  "palpiteiro_mais_central": "P126",
+  "pagerank_palpiteiro_mais_central": 0.032059528182669376
+}

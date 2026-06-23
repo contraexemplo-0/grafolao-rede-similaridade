@@ -1,0 +1,111 @@
+{
+  "ok": true,
+  "output_dir": "outputs\\final_theta_0_20",
+  "checks": [
+    {
+      "nome": "arquivo:tabelas/resumo_dados_artigo.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:tabelas/resumo_grafo_final.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:tabelas/resumo_componentes_artigo.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:tabelas/resumo_comunidades_maior_componente.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:tabelas/ranking_centralidade.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:tabelas/metricas_participantes_final.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:tabelas/pares_similaridade_final.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:tabelas/matriz_similaridade_final.csv",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:figuras/analise_sensibilidade_limiar.png",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:figuras/distribuicao_palpites_participante.png",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:figuras/distribuicao_tamanho_componentes_melhorado.png",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:figuras/tamanho_comunidades_maior_componente.png",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:figuras/ranking_centralidade_pagerank_melhorado.png",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:figuras/heatmap_similaridade_ordenado.png",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:grafos/grafo_final.graphml",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:grafos/grafo_final.json",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:resumo/relatorio_final.md",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "arquivo:resumo/relatorio_final.json",
+      "ok": true,
+      "mensagem": "arquivo encontrado"
+    },
+    {
+      "nome": "consistencia_grafo_json",
+      "ok": true,
+      "mensagem": "json=(135, 479), csv=(135, 479)"
+    },
+    {
+      "nome": "ranking",
+      "ok": true,
+      "mensagem": "ranking valido"
+    },
+    {
+      "nome": "dados_sensiveis",
+      "ok": true,
+      "mensagem": "sem colunas sensiveis ou emails"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "parametros": {
+    "theta": 0.2,
+    "gamma": 1.0,
+    "modelo": "cobertura_linear",
+    "formula": "sim_final = sim_media * cobertura^gamma"
+  },
+  "metricas_globais": {
+    "vertices": 135.0,
+    "arestas": 479.0,
+    "densidade": 0.0529574350469872,
+    "componentes": 93.0,
+    "maior_componente": 43.0,
+    "grau_medio": 7.0962962962962965,
+    "forca_media": 2.244444444444444,
+    "peso_medio_arestas": 0.3162839248434237,
+    "agrupamento_medio": 0.1217130858813656,
+    "distancia_media_maior_componente": 1.0419456189805023,
+    "diametro_maior_componente": 2.371212121212121
+  },
+  "participante_mais_central": "P126",
+  "comunidades_maior_componente": [
+    {
+      "comunidade": 1,
+      "tamanho": 24,
+      "arestas_internas": 196,
+      "densidade_interna": 0.7101449275362319,
+      "forca_media": 8.393860479797981,
+      "pagerank_total": 0.4890596899871538,
+      "participante_mais_central": "P126",
+      "pagerank_participante_mais_central": 0.0320595281826693
+    },
+    {
+      "comunidade": 2,
+      "tamanho": 19,
+      "arestas_internas": 78,
+      "densidade_interna": 0.4561403508771929,
+      "forca_media": 5.344597288676235,
+      "pagerank_total": 0.2679121005781161,
+      "participante_mais_central": "P013",
+      "pagerank_participante_mais_central": 0.0312833944148593
+    }
+  ],
+  "vertices_ponte_top_10": [
+    {
+      "participante_id": "P099",
+      "comunidade": 1,
+      "pagerank": 0.0306096449111316,
+      "betweenness": 0.0089776680507238,
+      "grau_intercomunidades": 12,
+      "forca_intercomunidades": 3.494318181818181
+    },
+    {
+      "participante_id": "P126",
+      "comunidade": 1,
+      "pagerank": 0.0320595281826693,
+      "betweenness": 0.0088093367747727,
+      "grau_intercomunidades": 16,
+      "forca_intercomunidades": 4.893939393939393
+    },
+    {
+      "participante_id": "P015",
+      "comunidade": 1,
+      "pagerank": 0.0311922281180304,
+      "betweenness": 0.0081921220962854,
+      "grau_intercomunidades": 13,
+      "forca_intercomunidades": 4.630681818181818
+    },
+    {
+      "participante_id": "P013",
+      "comunidade": 2,
+      "pagerank": 0.0312833944148593,
+      "betweenness": 0.0060599259342385,
+      "grau_intercomunidades": 21,
+      "forca_intercomunidades": 8.914772727272727
+    },
+    {
+      "participante_id": "P041",
+      "comunidade": 2,
+      "pagerank": 0.0202283740395075,
+      "betweenness": 0.0046010548759959,
+      "grau_intercomunidades": 18,
+      "forca_intercomunidades": 4.77840909090909
+    },
+    {
+      "participante_id": "P092",
+      "comunidade": 1,
+      "pagerank": 0.0287644438003031,
+      "betweenness": 0.0044327236000448,
+      "grau_intercomunidades": 15,
+      "forca_intercomunidades": 4.367424242424241
+    },
+    {
+      "participante_id": "P018",
+      "comunidade": 1,
+      "pagerank": 0.0256469182367153,
+      "betweenness": 0.0032544046683873,
+      "grau_intercomunidades": 11,
+      "forca_intercomunidades": 3.1325757575757573
+    },
+    {
+      "participante_id": "P131",
+      "comunidade": 1,
+      "pagerank": 0.027148073441796,
+      "betweenness": 0.0016833127595107,
+      "grau_intercomunidades": 13,
+      "forca_intercomunidades": 3.946969696969696
+    },
+    {
+      "participante_id": "P111",
+      "comunidade": 2,
+      "pagerank": 0.0270488802159114,
+      "betweenness": 0.0015710919088766,
+      "grau_intercomunidades": 20,
+      "forca_intercomunidades": 7.113636363636362
+    },
+    {
+      "participante_id": "P116",
+      "comunidade": 1,
+      "pagerank": 0.0289702794440711,
+      "betweenness": 0.0014588710582426,
+      "grau_intercomunidades": 13,
+      "forca_intercomunidades": 4.176136363636363
+    }
+  ],
+  "resumo_comunidades_apresentacao": [
+    {
+      "comunidade": 1,
+      "tamanho": 24,
+      "participante_mais_central": "P126",
+      "pagerank_participante_mais_central": 0.0320595281826693,
+      "vertices_ponte_principais": "P099;P126;P015"
+    },
+    {
+      "comunidade": 2,
+      "tamanho": 19,
+      "participante_mais_central": "P013",
+      "pagerank_participante_mais_central": 0.0312833944148593,
+      "vertices_ponte_principais": "P013;P041;P111"
+    }
+  ],
+  "observacoes": [
+    "Os grafos de nos usam filtro visual de arestas para reduzir poluicao visual.",
+    "As metricas e tabelas principais permanecem baseadas no grafo completo.",
+    "weight representa similaridade; distance = 1 - weight e usado em caminhos e betweenness."
+  ]
+}

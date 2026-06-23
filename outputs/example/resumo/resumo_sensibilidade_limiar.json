@@ -1,0 +1,79 @@
+{
+  "data_dir": "data/example",
+  "output_dir": "outputs/example",
+  "thetas": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "quantidade_participantes": 5,
+  "quantidade_jogos": 4,
+  "quantidade_pares": 10,
+  "resultados": [
+    {
+      "theta": 0.2,
+      "vertices": 5,
+      "arestas": 8,
+      "densidade": 0.8,
+      "componentes": 1,
+      "maior_componente": 5,
+      "grau_medio": 3.2,
+      "forca_media": 1.50625,
+      "peso_medio_arestas": 0.470703125,
+      "agrupamento_medio": 0.4374229048499038,
+      "quantidade_comunidades": 1,
+      "quantidade_cliques_maximais": 2,
+      "palpiteiro_mais_central": "P001",
+      "pagerank_palpiteiro_mais_central": 0.2907401075391077
+    },
+    {
+      "theta": 0.3,
+      "vertices": 5,
+      "arestas": 5,
+      "densidade": 0.5,
+      "componentes": 2,
+      "maior_componente": 4,
+      "grau_medio": 2.0,
+      "forca_media": 1.18125,
+      "peso_medio_arestas": 0.590625,
+      "agrupamento_medio": 0.44060504827302677,
+      "quantidade_comunidades": 2,
+      "quantidade_cliques_maximais": 2,
+      "palpiteiro_mais_central": "P001",
+      "pagerank_palpiteiro_mais_central": 0.3129929689675976
+    },
+    {
+      "theta": 0.4,
+      "vertices": 5,
+      "arestas": 5,
+      "densidade": 0.5,
+      "componentes": 2,
+      "maior_componente": 4,
+      "grau_medio": 2.0,
+      "forca_media": 1.18125,
+      "peso_medio_arestas": 0.590625,
+      "agrupamento_medio": 0.44060504827302677,
+      "quantidade_comunidades": 2,
+      "quantidade_cliques_maximais": 2,
+      "palpiteiro_mais_central": "P001",
+      "pagerank_palpiteiro_mais_central": 0.3129929689675976
+    },
+    {
+      "theta": 0.5,
+      "vertices": 5,
+      "arestas": 4,
+      "densidade": 0.4,
+      "componentes": 2,
+      "maior_componente": 4,
+      "grau_medio": 1.6,
+      "forca_media": 0.9875,
+      "peso_medio_arestas": 0.6171875,
+      "agrupamento_medio": 0.31317150964092405,
+      "quantidade_comunidades": 2,
+      "quantidade_cliques_maximais": 2,
+      "palpiteiro_mais_central": "P001",
+      "pagerank_palpiteiro_mais_central": 0.37410567425593194
+    }
+  ]
+}

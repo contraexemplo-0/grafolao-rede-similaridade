@@ -1,0 +1,9 @@
+data/raw/
+data/private/
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+*.sql
+*.log
+.DS_Store

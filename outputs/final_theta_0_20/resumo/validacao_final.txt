@@ -1,0 +1,23 @@
+validacao_final: OK
+output_dir: outputs\final_theta_0_20
+[OK] arquivo:tabelas/resumo_dados_artigo.csv: arquivo encontrado
+[OK] arquivo:tabelas/resumo_grafo_final.csv: arquivo encontrado
+[OK] arquivo:tabelas/resumo_componentes_artigo.csv: arquivo encontrado
+[OK] arquivo:tabelas/resumo_comunidades_maior_componente.csv: arquivo encontrado
+[OK] arquivo:tabelas/ranking_centralidade.csv: arquivo encontrado
+[OK] arquivo:tabelas/metricas_participantes_final.csv: arquivo encontrado
+[OK] arquivo:tabelas/pares_similaridade_final.csv: arquivo encontrado
+[OK] arquivo:tabelas/matriz_similaridade_final.csv: arquivo encontrado
+[OK] arquivo:figuras/analise_sensibilidade_limiar.png: arquivo encontrado
+[OK] arquivo:figuras/distribuicao_palpites_participante.png: arquivo encontrado
+[OK] arquivo:figuras/distribuicao_tamanho_componentes_melhorado.png: arquivo encontrado
+[OK] arquivo:figuras/tamanho_comunidades_maior_componente.png: arquivo encontrado
+[OK] arquivo:figuras/ranking_centralidade_pagerank_melhorado.png: arquivo encontrado
+[OK] arquivo:figuras/heatmap_similaridade_ordenado.png: arquivo encontrado
+[OK] arquivo:grafos/grafo_final.graphml: arquivo encontrado
+[OK] arquivo:grafos/grafo_final.json: arquivo encontrado
+[OK] arquivo:resumo/relatorio_final.md: arquivo encontrado
+[OK] arquivo:resumo/relatorio_final.json: arquivo encontrado
+[OK] consistencia_grafo_json: json=(135, 479), csv=(135, 479)
+[OK] ranking: ranking valido
+[OK] dados_sensiveis: sem colunas sensiveis ou emails

@@ -1,0 +1,3 @@
+modelo,gamma,theta,vertices,arestas,densidade,componentes,componentes_unitarias,maior_componente,grau_medio,peso_medio_arestas,comunidades_maior_componente,participante_mais_central
+cobertura_linear,1.0,0.2,135,479,0.0529574350469872,93,92,43,7.0962962962962965,0.3162839248434237,2,P126
+cobertura_suavizada,0.5,0.2,135,1881,0.20796019900497512,27,26,109,27.866666666666667,0.30127011504748363,3,P015

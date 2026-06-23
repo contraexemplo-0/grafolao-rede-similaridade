@@ -1,0 +1,36 @@
+{
+  "comparacao_csv": "outputs\\experimentos\\comparacao_cobertura.csv",
+  "comparacao_png": "outputs\\experimentos\\comparacao_cobertura.png",
+  "modelos": [
+    {
+      "modelo": "cobertura_linear",
+      "gamma": 1.0,
+      "theta": 0.2,
+      "vertices": 135,
+      "arestas": 479,
+      "densidade": 0.0529574350469872,
+      "componentes": 93,
+      "componentes_unitarias": 92,
+      "maior_componente": 43,
+      "grau_medio": 7.0962962962962965,
+      "peso_medio_arestas": 0.3162839248434237,
+      "comunidades_maior_componente": 2,
+      "participante_mais_central": "P126"
+    },
+    {
+      "modelo": "cobertura_suavizada",
+      "gamma": 0.5,
+      "theta": 0.2,
+      "vertices": 135,
+      "arestas": 1881,
+      "densidade": 0.20796019900497512,
+      "componentes": 27,
+      "componentes_unitarias": 26,
+      "maior_componente": 109,
+      "grau_medio": 27.866666666666667,
+      "peso_medio_arestas": 0.30127011504748363,
+      "comunidades_maior_componente": 3,
+      "participante_mais_central": "P015"
+    }
+  ]
+}

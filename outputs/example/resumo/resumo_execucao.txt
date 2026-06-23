@@ -1,0 +1,15 @@
+data_dir: data/example
+output_dir: outputs/example
+theta: 0.5
+quantidade_participantes: 5
+quantidade_jogos: 4
+quantidade_palpites: 19
+vertices: 5
+arestas: 4
+densidade: 0.4
+componentes: 2
+maior_componente: 4
+quantidade_comunidades: 2
+quantidade_cliques_maximais: 2
+palpiteiro_mais_central: P001
+pagerank_palpiteiro_mais_central: 0.37410567425593194

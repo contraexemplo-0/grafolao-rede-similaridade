@@ -1,0 +1,196 @@
+{
+  "parametros": {
+    "theta": 0.2,
+    "gamma": 0.5,
+    "modelo": "cobertura_suavizada",
+    "formula": "sim_final = sim_media * cobertura^gamma"
+  },
+  "metricas_globais": {
+    "vertices": 135.0,
+    "arestas": 1881.0,
+    "densidade": 0.2079601990049751,
+    "componentes": 27.0,
+    "maior_componente": 109.0,
+    "grau_medio": 27.866666666666667,
+    "forca_media": 8.3953938726565,
+    "peso_medio_arestas": 0.3012701150474836,
+    "agrupamento_medio": 0.2496919776729403,
+    "distancia_media_maior_componente": 1.2266332401907902,
+    "diametro_maior_componente": 3.034203104954809
+  },
+  "comparacao": [
+    {
+      "modelo": "cobertura_linear",
+      "gamma": 1.0,
+      "theta": 0.2,
+      "vertices": 135,
+      "arestas": 479,
+      "densidade": 0.0529574350469872,
+      "componentes": 93,
+      "componentes_unitarias": 92,
+      "maior_componente": 43,
+      "grau_medio": 7.0962962962962965,
+      "peso_medio_arestas": 0.3162839248434237,
+      "comunidades_maior_componente": 2,
+      "participante_mais_central": "P126"
+    },
+    {
+      "modelo": "cobertura_suavizada",
+      "gamma": 0.5,
+      "theta": 0.2,
+      "vertices": 135,
+      "arestas": 1881,
+      "densidade": 0.20796019900497512,
+      "componentes": 27,
+      "componentes_unitarias": 26,
+      "maior_componente": 109,
+      "grau_medio": 27.866666666666667,
+      "peso_medio_arestas": 0.30127011504748363,
+      "comunidades_maior_componente": 3,
+      "participante_mais_central": "P015"
+    }
+  ],
+  "comunidades_maior_componente": [
+    {
+      "comunidade": 1,
+      "tamanho": 51,
+      "arestas_internas": 504,
+      "densidade_interna": 0.3952941176470588,
+      "forca_media": 10.297387132753729,
+      "pagerank_total": 0.4576808495361327,
+      "participante_mais_central": "P015",
+      "pagerank_participante_mais_central": 0.024065221383973
+    },
+    {
+      "comunidade": 2,
+      "tamanho": 50,
+      "arestas_internas": 594,
+      "densidade_interna": 0.4848979591836734,
+      "forca_media": 11.318117074125846,
+      "pagerank_total": 0.4653420337028419,
+      "participante_mais_central": "P111",
+      "pagerank_participante_mais_central": 0.0199858777839339
+    },
+    {
+      "comunidade": 3,
+      "tamanho": 8,
+      "arestas_internas": 13,
+      "densidade_interna": 0.4642857142857143,
+      "forca_media": 5.288196916486977,
+      "pagerank_total": 0.0424332593062182,
+      "participante_mais_central": "P013",
+      "pagerank_participante_mais_central": 0.0205559247106176
+    }
+  ],
+  "vertices_ponte_top_10": [
+    {
+      "participante_id": "P015",
+      "comunidade": 1,
+      "pagerank": 0.024065221383973,
+      "betweenness": 0.0735607675906183,
+      "grau_intercomunidades": 43,
+      "forca_intercomunidades": 15.637306072760502
+    },
+    {
+      "participante_id": "P099",
+      "comunidade": 1,
+      "pagerank": 0.021527545188688,
+      "betweenness": 0.0565780121946657,
+      "grau_intercomunidades": 40,
+      "forca_intercomunidades": 13.901235403366902
+    },
+    {
+      "participante_id": "P092",
+      "comunidade": 1,
+      "pagerank": 0.0219006780740052,
+      "betweenness": 0.0448836643848427,
+      "grau_intercomunidades": 43,
+      "forca_intercomunidades": 14.22020839244276
+    },
+    {
+      "participante_id": "P126",
+      "comunidade": 1,
+      "pagerank": 0.0219826378891422,
+      "betweenness": 0.0421763363632963,
+      "grau_intercomunidades": 39,
+      "forca_intercomunidades": 14.333429895471006
+    },
+    {
+      "participante_id": "P007",
+      "comunidade": 1,
+      "pagerank": 0.019868182987953,
+      "betweenness": 0.0243285452437062,
+      "grau_intercomunidades": 42,
+      "forca_intercomunidades": 13.895208225664586
+    },
+    {
+      "participante_id": "P013",
+      "comunidade": 3,
+      "pagerank": 0.0205559247106176,
+      "betweenness": 0.0233980473571989,
+      "grau_intercomunidades": 68,
+      "forca_intercomunidades": 25.173722845474988
+    },
+    {
+      "participante_id": "P081",
+      "comunidade": 1,
+      "pagerank": 0.0201484026764207,
+      "betweenness": 0.0190775446077881,
+      "grau_intercomunidades": 36,
+      "forca_intercomunidades": 12.209129399949742
+    },
+    {
+      "participante_id": "P094",
+      "comunidade": 1,
+      "pagerank": 0.0200227966178056,
+      "betweenness": 0.0177121909250738,
+      "grau_intercomunidades": 39,
+      "forca_intercomunidades": 13.888320227885805
+    },
+    {
+      "participante_id": "P116",
+      "comunidade": 1,
+      "pagerank": 0.0203613056616864,
+      "betweenness": 0.016496465043205,
+      "grau_intercomunidades": 41,
+      "forca_intercomunidades": 14.173154664343434
+    },
+    {
+      "participante_id": "P018",
+      "comunidade": 1,
+      "pagerank": 0.0176084277823466,
+      "betweenness": 0.0135787229267197,
+      "grau_intercomunidades": 29,
+      "forca_intercomunidades": 9.84081651520855
+    }
+  ],
+  "resumo_comunidades_apresentacao": [
+    {
+      "comunidade": 1,
+      "tamanho": 51,
+      "participante_mais_central": "P015",
+      "pagerank_participante_mais_central": 0.024065221383973,
+      "vertices_ponte_principais": "P015;P099;P092"
+    },
+    {
+      "comunidade": 2,
+      "tamanho": 50,
+      "participante_mais_central": "P111",
+      "pagerank_participante_mais_central": 0.0199858777839339,
+      "vertices_ponte_principais": "P111;P005;P049"
+    },
+    {
+      "comunidade": 3,
+      "tamanho": 8,
+      "participante_mais_central": "P013",
+      "pagerank_participante_mais_central": 0.0205559247106176,
+      "vertices_ponte_principais": "P013;P067;P045"
+    }
+  ],
+  "interpretacao": [
+    "A cobertura suavizada preserva a penalizacao por baixa cobertura, mas reduz sua rigidez.",
+    "A topologia fica substancialmente mais conectada do que no modelo linear.",
+    "O experimento nao substitui automaticamente o modelo oficial; ele mede sensibilidade metodologica.",
+    "weight representa similaridade; distance = 1 - weight e usado para caminhos e betweenness."
+  ]
+}

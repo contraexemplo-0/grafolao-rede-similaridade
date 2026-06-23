@@ -1,0 +1,13 @@
+Resumo da analise de sensibilidade do limiar
+data_dir: data/example
+output_dir: outputs/example
+thetas: [0.2, 0.3, 0.4, 0.5]
+quantidade_participantes: 5
+quantidade_jogos: 4
+quantidade_pares: 10
+
+Resultados por theta:
+theta=0.2: vertices=5, arestas=8, componentes=1, maior_componente=5, palpiteiro_mais_central=P001
+theta=0.3: vertices=5, arestas=5, componentes=2, maior_componente=4, palpiteiro_mais_central=P001
+theta=0.4: vertices=5, arestas=5, componentes=2, maior_componente=4, palpiteiro_mais_central=P001
+theta=0.5: vertices=5, arestas=4, componentes=2, maior_componente=4, palpiteiro_mais_central=P001

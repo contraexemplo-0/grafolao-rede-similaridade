@@ -1,0 +1,5 @@
+"""Constantes principais do projeto."""
+
+THETA_SIMILARIDADE = 0.50
+C_NORMALIZACAO_PLACAR = 4
+PAGERANK_DAMPING = 0.85

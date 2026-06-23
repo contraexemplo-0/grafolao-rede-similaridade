@@ -1,0 +1,20 @@
+{
+  "data_dir": "data/processed",
+  "output_dir": "outputs/experimentos/cobertura_suavizada_gamma_0_5",
+  "modelo": "cobertura_suavizada",
+  "theta": 0.2,
+  "gamma": 0.5,
+  "quantidade_participantes": 135,
+  "quantidade_jogos": 33,
+  "quantidade_palpites": 1113,
+  "vertices": 135,
+  "arestas": 1881,
+  "densidade": 0.20796019900497512,
+  "componentes": 27,
+  "componentes_unitarias": 26,
+  "maior_componente": 109,
+  "quantidade_comunidades": 29,
+  "quantidade_cliques_maximais": 474,
+  "palpiteiro_mais_central": "P015",
+  "pagerank_palpiteiro_mais_central": 0.024065221383973084
+}
