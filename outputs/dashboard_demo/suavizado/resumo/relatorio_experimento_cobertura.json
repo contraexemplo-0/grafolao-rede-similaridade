@@ -1,0 +1,213 @@
+{
+  "parametros": {
+    "theta": 0.2,
+    "gamma": 0.5,
+    "modelo": "cobertura_suavizada",
+    "formula": "sim_final = sim_media * cobertura^gamma"
+  },
+  "metricas_globais": {
+    "vertices": 136.0,
+    "arestas": 1961.0,
+    "densidade": 0.2136165577342048,
+    "componentes": 27.0,
+    "maior_componente": 110.0,
+    "grau_medio": 28.83823529411765,
+    "forca_media": 8.755010352675592,
+    "peso_medio_arestas": 0.3035903640907413,
+    "agrupamento_medio": 0.2234957891094817,
+    "distancia_media_maior_componente": 1.2176443918687836,
+    "diametro_maior_componente": 3.034203104954809
+  },
+  "comparacao": [
+    {
+      "modelo": "cobertura_linear",
+      "gamma": 1.0,
+      "theta": 0.2,
+      "vertices": 136,
+      "arestas": 515,
+      "densidade": 0.0561002178649237,
+      "componentes": 93,
+      "componentes_unitarias": 92,
+      "maior_componente": 44,
+      "grau_medio": 7.573529411764706,
+      "peso_medio_arestas": 0.3208259782288908,
+      "comunidades_maior_componente": 3,
+      "participante_mais_central": "P126"
+    },
+    {
+      "modelo": "cobertura_suavizada",
+      "gamma": 0.5,
+      "theta": 0.2,
+      "vertices": 136,
+      "arestas": 1961,
+      "densidade": 0.2136165577342048,
+      "componentes": 27,
+      "componentes_unitarias": 26,
+      "maior_componente": 110,
+      "grau_medio": 28.83823529411765,
+      "peso_medio_arestas": 0.3035903640907413,
+      "comunidades_maior_componente": 4,
+      "participante_mais_central": "P015"
+    }
+  ],
+  "comunidades_maior_componente": [
+    {
+      "comunidade": 1,
+      "tamanho": 52,
+      "arestas_internas": 545,
+      "densidade_interna": 0.4110105580693816,
+      "forca_media": 10.92765184265416,
+      "pagerank_total": 0.4690394160816509,
+      "participante_mais_central": "P015",
+      "pagerank_participante_mais_central": 0.0233866421023613
+    },
+    {
+      "comunidade": 2,
+      "tamanho": 48,
+      "arestas_internas": 578,
+      "densidade_interna": 0.5124113475177305,
+      "forca_media": 11.914188449118043,
+      "pagerank_total": 0.4477043688526132,
+      "participante_mais_central": "P111",
+      "pagerank_participante_mais_central": 0.0194763206427246
+    },
+    {
+      "comunidade": 3,
+      "tamanho": 8,
+      "arestas_internas": 13,
+      "densidade_interna": 0.4642857142857143,
+      "forca_media": 5.356727040089004,
+      "pagerank_total": 0.041308870173649,
+      "participante_mais_central": "P013",
+      "pagerank_participante_mais_central": 0.0200066598078834
+    },
+    {
+      "comunidade": 4,
+      "tamanho": 2,
+      "arestas_internas": 1,
+      "densidade_interna": 1.0,
+      "forca_media": 3.854325133743255,
+      "pagerank_total": 0.0077067705962248,
+      "participante_mais_central": "P132",
+      "pagerank_participante_mais_central": 0.0050962093451475
+    }
+  ],
+  "vertices_ponte_top_10": [
+    {
+      "participante_id": "P015",
+      "comunidade": 1,
+      "pagerank": 0.0233866421023613,
+      "betweenness": 0.0718629076838032,
+      "grau_intercomunidades": 43,
+      "forca_intercomunidades": 15.637306072760502
+    },
+    {
+      "participante_id": "P099",
+      "comunidade": 1,
+      "pagerank": 0.0209635653671603,
+      "betweenness": 0.0548553528653031,
+      "grau_intercomunidades": 40,
+      "forca_intercomunidades": 13.901235403366902
+    },
+    {
+      "participante_id": "P092",
+      "comunidade": 1,
+      "pagerank": 0.021307702721731,
+      "betweenness": 0.0435553712916896,
+      "grau_intercomunidades": 43,
+      "forca_intercomunidades": 14.22020839244276
+    },
+    {
+      "participante_id": "P126",
+      "comunidade": 1,
+      "pagerank": 0.0213026700932879,
+      "betweenness": 0.03276211534918,
+      "grau_intercomunidades": 39,
+      "forca_intercomunidades": 14.333429895471006
+    },
+    {
+      "participante_id": "P007",
+      "comunidade": 1,
+      "pagerank": 0.0193456897537436,
+      "betweenness": 0.024189238990234,
+      "grau_intercomunidades": 42,
+      "forca_intercomunidades": 13.895208225664586
+    },
+    {
+      "participante_id": "P013",
+      "comunidade": 3,
+      "pagerank": 0.0200066598078834,
+      "betweenness": 0.0210060807075732,
+      "grau_intercomunidades": 69,
+      "forca_intercomunidades": 25.7219638342912
+    },
+    {
+      "participante_id": "P_TESTE",
+      "comunidade": 1,
+      "pagerank": 0.0214314521101494,
+      "betweenness": 0.0199004975124378,
+      "grau_intercomunidades": 39,
+      "forca_intercomunidades": 14.232083107676342
+    },
+    {
+      "participante_id": "P081",
+      "comunidade": 1,
+      "pagerank": 0.0196022505348166,
+      "betweenness": 0.0174682144831398,
+      "grau_intercomunidades": 36,
+      "forca_intercomunidades": 12.209129399949742
+    },
+    {
+      "participante_id": "P094",
+      "comunidade": 1,
+      "pagerank": 0.0195087384161271,
+      "betweenness": 0.016786438179473,
+      "grau_intercomunidades": 39,
+      "forca_intercomunidades": 13.888320227885805
+    },
+    {
+      "participante_id": "P116",
+      "comunidade": 1,
+      "pagerank": 0.0197902632327335,
+      "betweenness": 0.0153676064123825,
+      "grau_intercomunidades": 41,
+      "forca_intercomunidades": 14.173154664343434
+    }
+  ],
+  "resumo_comunidades_apresentacao": [
+    {
+      "comunidade": 1,
+      "tamanho": 52,
+      "participante_mais_central": "P015",
+      "pagerank_participante_mais_central": 0.0233866421023613,
+      "vertices_ponte_principais": "P015;P099;P092"
+    },
+    {
+      "comunidade": 2,
+      "tamanho": 48,
+      "participante_mais_central": "P111",
+      "pagerank_participante_mais_central": 0.0194763206427246,
+      "vertices_ponte_principais": "P005;P111;P049"
+    },
+    {
+      "comunidade": 3,
+      "tamanho": 8,
+      "participante_mais_central": "P013",
+      "pagerank_participante_mais_central": 0.0200066598078834,
+      "vertices_ponte_principais": "P013;P067;P045"
+    },
+    {
+      "comunidade": 4,
+      "tamanho": 2,
+      "participante_mais_central": "P132",
+      "pagerank_participante_mais_central": 0.0050962093451475,
+      "vertices_ponte_principais": "P132;P029"
+    }
+  ],
+  "interpretacao": [
+    "A cobertura suavizada preserva a penalizacao por baixa cobertura, mas reduz sua rigidez.",
+    "A topologia fica substancialmente mais conectada do que no modelo linear.",
+    "O experimento nao substitui automaticamente o modelo oficial; ele mede sensibilidade metodologica.",
+    "weight representa similaridade; distance = 1 - weight e usado para caminhos e betweenness."
+  ]
+}

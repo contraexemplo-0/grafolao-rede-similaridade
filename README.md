@@ -420,7 +420,62 @@ Figuras importantes:
 
 Os grafos de visualização podem usar filtros para reduzir poluição visual. As métricas são calculadas no grafo completo.
 
-## 12. Resultados obtidos no experimento real anonimizado
+## 12. Dashboard local: módulo Redes de Similaridade
+
+Além do pipeline acadêmico, o projeto possui um protótipo local em Streamlit para demonstrar como o módulo **Redes de Similaridade** poderia aparecer dentro do produto Grafolão.
+
+Esse dashboard é uma demonstração visual e local. Ele não substitui o artigo, não altera a modelagem, não integra com banco de dados, não possui autenticação e não se conecta ao sistema real do Grafolão.
+
+Funcionalidades demonstradas:
+
+- **Visão geral da rede**: resumo do modelo selecionado.
+- **Meus semelhantes**: participantes com padrões de palpite próximos ao usuário demo.
+- **Grupos de palpite**: comunidade do usuário demo e membros relacionados.
+- **Participantes centrais**: ranking estrutural por centralidade PageRank.
+- **Mapa da rede**: visualização interativa da rede de similaridade.
+
+O dashboard usa um participante artificial chamado `P_TESTE`. Esse usuário foi criado apenas para demonstrar uma experiência personalizada, permitindo visualizar seus participantes mais semelhantes, sua comunidade, sua posição no ranking de centralidade e o mapa da rede.
+
+Os dados usados pelo dashboard são anonimizados. A base demo fica em:
+
+```txt
+dashboard/data/demo/
+```
+
+Os resultados consumidos pelo dashboard ficam em:
+
+```txt
+outputs/dashboard_demo/linear/
+outputs/dashboard_demo/suavizado/
+```
+
+Para instalar as dependências específicas do dashboard:
+
+```bash
+pip install -r dashboard/requirements.txt
+```
+
+Se necessário, gere a base demo com `P_TESTE`:
+
+```bash
+python dashboard/gerar_dados_demo.py
+```
+
+Em seguida, gere os resultados usados pela interface:
+
+```bash
+python dashboard/gerar_resultados_demo.py
+```
+
+Para rodar o dashboard:
+
+```bash
+streamlit run dashboard/app.py
+```
+
+O dashboard não usa dump SQL privado, não acessa `data/raw/` ou `data/private/`, não expõe dados pessoais e não deve ser tratado como fluxo público de extração de dados. Seu objetivo é demonstrar como os resultados da modelagem em grafos poderiam ser apresentados a um usuário final.
+
+## 13. Resultados obtidos no experimento real anonimizado
 
 Os números abaixo vêm de um experimento real anonimizado disponível em `data/processed/`.
 
@@ -455,7 +510,7 @@ participante mais central = P015
 
 O modelo suavizado tornou a rede mais conectada, indicando que a estrutura observada depende da forma de penalização da cobertura.
 
-## 13. Interpretação dos resultados
+## 14. Interpretação dos resultados
 
 A rede oficial com cobertura linear ficou bastante fragmentada. Isso é um resultado da aplicação da modelagem ao recorte analisado, não um erro de execução.
 
@@ -470,7 +525,7 @@ PageRank deve ser interpretado como centralidade estrutural: participantes com a
 
 Comunidades indicam subgrupos mais densamente conectados por similaridade de palpites. Elas não indicam amizade, torcida, cópia ou causalidade.
 
-## 14. Privacidade
+## 15. Privacidade
 
 O repositório foi organizado para não incluir dados pessoais identificáveis.
 
@@ -490,7 +545,7 @@ O uso público do projeto deve partir de:
 
 `data/raw/`, `data/private/` e arquivos `*.sql` continuam privados e não devem ser versionados.
 
-## 15. Limitações
+## 16. Limitações
 
 - Os resultados dependem do limiar `theta`.
 - Os resultados dependem da função de cobertura.
@@ -501,7 +556,7 @@ O uso público do projeto deve partir de:
 - Grafos de visualização usam filtros para legibilidade.
 - O projeto é um pipeline analítico offline, não um sistema de produção.
 
-## 16. Testes
+## 17. Testes
 
 Execute:
 

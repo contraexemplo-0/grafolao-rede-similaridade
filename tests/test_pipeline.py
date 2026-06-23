@@ -89,6 +89,35 @@ def test_validar_dados_entrada_falha_com_participante_nao_anonimizado():
         validar_dados_entrada(dados)
 
 
+def test_validar_dados_entrada_aceita_participante_demo_p_teste():
+    dados = carregar_dados("data/example")
+    dados["participantes"] = pd.concat(
+        [
+            dados["participantes"],
+            pd.DataFrame([{"participante_id": "P_TESTE", "rotulo": "Participante Teste"}]),
+        ],
+        ignore_index=True,
+    )
+    dados["palpites"] = pd.concat(
+        [
+            dados["palpites"],
+            pd.DataFrame(
+                [
+                    {
+                        "participante_id": "P_TESTE",
+                        "jogo_id": "J001",
+                        "gols_a_palpite": 1,
+                        "gols_b_palpite": 1,
+                    }
+                ]
+            ),
+        ],
+        ignore_index=True,
+    )
+
+    validar_dados_entrada(dados)
+
+
 def test_validar_dados_entrada_falha_com_palpite_para_jogo_inexistente():
     dados = carregar_dados("data/example")
     dados["palpites"] = dados["palpites"].copy()

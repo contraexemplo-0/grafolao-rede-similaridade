@@ -1,0 +1,15 @@
+data_dir: dashboard/data/demo
+output_dir: outputs\dashboard_demo\linear
+theta: 0.2
+quantidade_participantes: 136
+quantidade_jogos: 33
+quantidade_palpites: 1145
+vertices: 136
+arestas: 515
+densidade: 0.056100217864923745
+componentes: 93
+maior_componente: 44
+quantidade_comunidades: 95
+quantidade_cliques_maximais: 29
+palpiteiro_mais_central: P126
+pagerank_palpiteiro_mais_central: 0.03088549777117836

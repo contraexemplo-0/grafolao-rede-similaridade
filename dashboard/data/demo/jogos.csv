@@ -1,0 +1,34 @@
+jogo_id,num,rodada,fase,grupo,time_a,time_b,data_hora,status
+J001,,Matchday 7,GRUPOS,Group K,Uzbekistan,Colombia,2026-06-17 22:00:00,ENCERRADO
+J002,,Matchday 4,GRUPOS,Group F,Netherlands,Japan,2026-06-14 16:00:00,ENCERRADO
+J003,,Matchday 3,GRUPOS,Group C,Haiti,Scotland,2026-06-13 21:00:00,ENCERRADO
+J004,,Matchday 10,GRUPOS,Group F,Netherlands,Sweden,2026-06-20 13:00:00,ENCERRADO
+J005,,Matchday 5,GRUPOS,Group G,Belgium,Egypt,2026-06-15 15:00:00,ENCERRADO
+J006,,Matchday 6,GRUPOS,Group I,Iraq,Norway,2026-06-16 18:00:00,ENCERRADO
+J007,,Matchday 5,GRUPOS,Group G,Iran,New Zealand,2026-06-15 21:00:00,ENCERRADO
+J008,,Matchday 7,GRUPOS,Group L,England,Croatia,2026-06-17 16:00:00,ENCERRADO
+J009,,Matchday 4,GRUPOS,Group F,Sweden,Tunisia,2026-06-14 22:00:00,ENCERRADO
+J010,,Matchday 4,GRUPOS,Group E,Ivory Coast,Ecuador,2026-06-14 19:00:00,ENCERRADO
+J011,,Matchday 10,GRUPOS,Group E,Germany,Ivory Coast,2026-06-20 16:00:00,ENCERRADO
+J012,,Matchday 9,GRUPOS,Group D,USA,Australia,2026-06-19 15:00:00,ENCERRADO
+J013,,Matchday 7,GRUPOS,Group K,Portugal,DR Congo,2026-06-17 13:00:00,ENCERRADO
+J014,,Matchday 6,GRUPOS,Group I,France,Senegal,2026-06-16 15:00:00,ENCERRADO
+J015,,Matchday 2,GRUPOS,Group D,USA,Paraguay,2026-06-12 21:00:00,ENCERRADO
+J016,,Matchday 5,GRUPOS,Group H,Spain,Cape Verde,2026-06-15 12:00:00,ENCERRADO
+J017,,Matchday 9,GRUPOS,Group C,Brazil,Haiti,2026-06-19 20:30:00,ENCERRADO
+J018,,Matchday 2,GRUPOS,Group B,Canada,Bosnia & Herzegovina,2026-06-12 15:00:00,ENCERRADO
+J019,,Matchday 1,GRUPOS,Group A,South Korea,Czech Republic,2026-06-11 22:00:00,ENCERRADO
+J020,,Matchday 3,GRUPOS,Group C,Brazil,Morocco,2026-06-13 18:00:00,ENCERRADO
+J021,,Matchday 9,GRUPOS,Group D,Turkey,Paraguay,2026-06-19 23:00:00,ENCERRADO
+J022,,Matchday 9,GRUPOS,Group C,Scotland,Morocco,2026-06-19 18:00:00,ENCERRADO
+J023,,Matchday 6,GRUPOS,Group J,Austria,Jordan,2026-06-17 00:00:00,ENCERRADO
+J024,,Matchday 8,GRUPOS,Group A,Mexico,South Korea,2026-06-18 21:00:00,ENCERRADO
+J025,,Matchday 4,GRUPOS,Group E,Germany,Curaçao,2026-06-14 13:00:00,ENCERRADO
+J026,,Matchday 3,GRUPOS,Group D,Australia,Turkey,2026-06-14 00:00:00,ENCERRADO
+J027,,Matchday 8,GRUPOS,Group A,Czech Republic,South Africa,2026-06-18 12:00:00,ENCERRADO
+J028,,Matchday 5,GRUPOS,Group H,Saudi Arabia,Uruguay,2026-06-15 18:00:00,ENCERRADO
+J029,,Matchday 6,GRUPOS,Group J,Argentina,Algeria,2026-06-16 21:00:00,ENCERRADO
+J030,,Matchday 8,GRUPOS,Group B,Switzerland,Bosnia & Herzegovina,2026-06-18 15:00:00,ENCERRADO
+J031,,Matchday 8,GRUPOS,Group B,Canada,Qatar,2026-06-18 18:00:00,ENCERRADO
+J032,,Matchday 3,GRUPOS,Group B,Qatar,Switzerland,2026-06-13 15:00:00,ENCERRADO
+J033,,Matchday 7,GRUPOS,Group L,Ghana,Panama,2026-06-17 19:00:00,ENCERRADO

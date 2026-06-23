@@ -31,7 +31,7 @@ COLUNAS_RANKING = {
     "comunidade",
 }
 
-PADRAO_PARTICIPANTE_ANONIMO = re.compile(r"^P\d{3,}$")
+PADRAO_PARTICIPANTE_ANONIMO = re.compile(r"^(P\d{3,}|P_TESTE)$")
 PADRAO_EMAIL = re.compile(r"[\w.\-+]+@[\w.\-]+\.[A-Za-z]{2,}")
 COLUNAS_SENSIVEIS = {
     "nome",

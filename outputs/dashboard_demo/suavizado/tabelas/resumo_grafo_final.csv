@@ -1,0 +1,2 @@
+vertices,arestas,densidade,componentes,maior_componente,grau_medio,forca_media,peso_medio_arestas,agrupamento_medio,distancia_media_maior_componente,diametro_maior_componente
+136,1961,0.2136165577342048,27,110,28.83823529411765,8.755010352675592,0.3035903640907413,0.22349578910948176,1.2176443918687836,3.034203104954809

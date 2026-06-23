@@ -1,0 +1,36 @@
+{
+  "comparacao_csv": "outputs\\dashboard_demo\\comparacao_cobertura.csv",
+  "comparacao_png": "outputs\\dashboard_demo\\comparacao_cobertura.png",
+  "modelos": [
+    {
+      "modelo": "cobertura_linear",
+      "gamma": 1.0,
+      "theta": 0.2,
+      "vertices": 136,
+      "arestas": 515,
+      "densidade": 0.0561002178649237,
+      "componentes": 93,
+      "componentes_unitarias": 92,
+      "maior_componente": 44,
+      "grau_medio": 7.573529411764706,
+      "peso_medio_arestas": 0.3208259782288908,
+      "comunidades_maior_componente": 3,
+      "participante_mais_central": "P126"
+    },
+    {
+      "modelo": "cobertura_suavizada",
+      "gamma": 0.5,
+      "theta": 0.2,
+      "vertices": 136,
+      "arestas": 1961,
+      "densidade": 0.2136165577342048,
+      "componentes": 27,
+      "componentes_unitarias": 26,
+      "maior_componente": 110,
+      "grau_medio": 28.83823529411765,
+      "peso_medio_arestas": 0.3035903640907413,
+      "comunidades_maior_componente": 4,
+      "participante_mais_central": "P015"
+    }
+  ]
+}
