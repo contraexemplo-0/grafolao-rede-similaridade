@@ -226,6 +226,330 @@ def render_styled_table(rows: list[dict], columns: list[str], highlight_user: bo
     )
 
 
+def _pill(text: str, kind: str = "neutral") -> str:
+    return f'<span class="status-pill status-{escape(kind)}">{escape(text)}</span>'
+
+
+def _palpite_texto(row: pd.Series, sufixo: str = "") -> str:
+    try:
+        gols_a = int(row[f"gols_a_palpite{sufixo}"])
+        gols_b = int(row[f"gols_b_palpite{sufixo}"])
+        return f"{gols_a}-{gols_b}"
+    except (KeyError, TypeError, ValueError):
+        return "-"
+
+
+def _resultado_previsto_palpite(gols_a: int, gols_b: int) -> str:
+    if gols_a > gols_b:
+        return "A"
+    if gols_a < gols_b:
+        return "B"
+    return "E"
+
+
+def _classificar_concordancia_palpite(
+    gols_a_teste: int,
+    gols_b_teste: int,
+    gols_a_outro: int,
+    gols_b_outro: int,
+) -> str:
+    """Classifica a concordância visual entre dois palpites sem alterar a similaridade."""
+    if gols_a_teste == gols_a_outro and gols_b_teste == gols_b_outro:
+        return "Igual"
+    resultado_teste = _resultado_previsto_palpite(gols_a_teste, gols_b_teste)
+    resultado_outro = _resultado_previsto_palpite(gols_a_outro, gols_b_outro)
+    if resultado_teste == resultado_outro:
+        return "Parcial"
+    return "Diferente"
+
+
+def _classe_situacao(situacao: str) -> str:
+    return {
+        "Igual": "igual",
+        "Parcial": "parcial",
+        "Diferente": "diferente",
+    }.get(situacao, "neutral")
+
+
+def _rotulo_situacao(situacao: str) -> str:
+    return {
+        "Igual": "🟢 Igual",
+        "Parcial": "🟡 Parcial",
+        "Diferente": "🔴 Diferente",
+    }.get(situacao, situacao)
+
+
+def _linha_similaridade_p_teste(output_dir: Path, participante: str) -> dict:
+    pares = _table(output_dir, "pares_similaridade_final.csv")
+    if pares.empty or not {"participante_u", "participante_v", "sim_final"}.issubset(pares.columns):
+        return {}
+
+    linha = pares[
+        ((pares["participante_u"] == USUARIO_ATUAL) & (pares["participante_v"] == participante))
+        | ((pares["participante_v"] == USUARIO_ATUAL) & (pares["participante_u"] == participante))
+    ]
+    if linha.empty:
+        return {}
+    return linha.iloc[0].to_dict()
+
+
+def _comunidade_participante(output_dir: Path, participante: str):
+    comunidades = _table(output_dir, "comunidades_final.csv")
+    if comunidades.empty or not {"participante_id", "comunidade"}.issubset(comunidades.columns):
+        return None
+    linha = comunidades[comunidades["participante_id"] == participante]
+    if linha.empty:
+        return None
+    return linha.iloc[0]["comunidade"]
+
+
+def _comparar_palpites_participantes(participante: str) -> pd.DataFrame:
+    palpites = _demo_csv("palpites.csv")
+    jogos = _demo_csv("jogos.csv")
+    colunas_palpites = {"participante_id", "jogo_id", "gols_a_palpite", "gols_b_palpite"}
+    if palpites.empty or not colunas_palpites.issubset(palpites.columns):
+        return pd.DataFrame()
+
+    base = palpites[palpites["participante_id"] == USUARIO_ATUAL].copy()
+    outro = palpites[palpites["participante_id"] == participante].copy()
+    if base.empty or outro.empty:
+        return pd.DataFrame()
+
+    comparacao = base.merge(
+        outro,
+        on="jogo_id",
+        suffixes=("_teste", "_outro"),
+    )
+    if comparacao.empty:
+        return pd.DataFrame()
+
+    if not jogos.empty and "jogo_id" in jogos.columns:
+        colunas_jogos = [
+            coluna
+            for coluna in ["jogo_id", "rodada", "time_a", "time_b", "data_hora", "num"]
+            if coluna in jogos.columns
+        ]
+        comparacao = comparacao.merge(jogos[colunas_jogos], on="jogo_id", how="left")
+
+    comparacao["palpite_teste"] = comparacao.apply(lambda row: _palpite_texto(row, "_teste"), axis=1)
+    comparacao["palpite_outro"] = comparacao.apply(lambda row: _palpite_texto(row, "_outro"), axis=1)
+    comparacao["situacao"] = comparacao.apply(
+        lambda row: _classificar_concordancia_palpite(
+            int(row["gols_a_palpite_teste"]),
+            int(row["gols_b_palpite_teste"]),
+            int(row["gols_a_palpite_outro"]),
+            int(row["gols_b_palpite_outro"]),
+        ),
+        axis=1,
+    )
+    comparacao["igual"] = comparacao["situacao"] == "Igual"
+    comparacao["parcial"] = comparacao["situacao"] == "Parcial"
+    comparacao["diferente"] = comparacao["situacao"] == "Diferente"
+
+    if {"time_a", "time_b"}.issubset(comparacao.columns):
+        comparacao["jogo"] = comparacao.apply(
+            lambda row: f"{row['time_a']} x {row['time_b']}"
+            if not pd.isna(row["time_a"]) and not pd.isna(row["time_b"])
+            else row["jogo_id"],
+            axis=1,
+        )
+    else:
+        comparacao["jogo"] = comparacao["jogo_id"]
+
+    if "data_hora" in comparacao.columns:
+        comparacao["_ordem_data"] = pd.to_datetime(comparacao["data_hora"], errors="coerce")
+    else:
+        comparacao["_ordem_data"] = pd.NaT
+
+    return comparacao
+
+
+def _render_comparison_table(df: pd.DataFrame) -> None:
+    if df.empty:
+        st.info("Nenhum jogo encontrado para o filtro selecionado.")
+        return
+
+    rows = []
+    for _, row in df.iterrows():
+        situacao = str(row.get("situacao", "-"))
+        rows.append(
+            {
+                "Rodada": row.get("rodada", "-"),
+                "Jogo": row.get("jogo", row.get("jogo_id", "-")),
+                "P_TESTE": row.get("palpite_teste", "-"),
+                "Participante": row.get("palpite_outro", "-"),
+                "Situação": _pill(_rotulo_situacao(situacao), _classe_situacao(situacao)),
+            }
+        )
+
+    header = "".join(f"<th>{escape(col)}</th>" for col in ["Rodada", "Jogo", "P_TESTE", "Participante", "Situação"])
+    body = []
+    for row in rows:
+        cells = []
+        for col in ["Rodada", "Jogo", "P_TESTE", "Participante", "Situação"]:
+            value = row.get(col, "-")
+            if col == "Situação":
+                cells.append(f"<td>{value}</td>")
+            else:
+                cells.append(f"<td>{escape(str(value))}</td>")
+        body.append(f"<tr>{''.join(cells)}</tr>")
+
+    st.markdown(
+        f"""
+        <div class="styled-table-wrap comparison-table">
+          <table class="styled-table">
+            <thead><tr>{header}</tr></thead>
+            <tbody>{''.join(body)}</tbody>
+          </table>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def _render_comparacao_palpites(output_dir: Path, participante: str) -> None:
+    linha = _linha_similaridade_p_teste(output_dir, participante)
+    comparacao = _comparar_palpites_participantes(participante)
+    comunidade = _comunidade_participante(output_dir, participante)
+
+    if comparacao.empty:
+        st.markdown(
+            f"""
+            <div class="comparison-panel">
+              <div class="comparison-title">Comparação de Palpites</div>
+              <div class="comparison-pair">{USUARIO_ATUAL} <span>versus</span> {escape(participante)}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.info("Não há jogos comparáveis suficientes para detalhar esta comparação.")
+        return
+
+    jogos_comparados = len(comparacao)
+    palpites_iguais = int((comparacao["situacao"] == "Igual").sum())
+    palpites_parciais = int((comparacao["situacao"] == "Parcial").sum())
+    palpites_diferentes = int((comparacao["situacao"] == "Diferente").sum())
+    similaridade = linha.get("sim_final")
+    cobertura = linha.get("cobertura")
+    comunidade_texto = _fmt(comunidade, 0) if comunidade is not None else "-"
+
+    st.markdown(
+        f"""
+        <div class="comparison-panel">
+          <div class="comparison-title">Comparação de Palpites</div>
+          <div class="comparison-pair">{USUARIO_ATUAL} <span>versus</span> {escape(participante)}</div>
+          <div class="comparison-meta">
+            <span>Similaridade: <strong>{escape(_fmt_percent(similaridade))}</strong></span>
+            <span>Jogos comparados: <strong>{escape(_fmt_int(jogos_comparados))}</strong></span>
+            <span>Comunidade: <strong>{escape(str(comunidade_texto))}</strong></span>
+          </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    metric_grid(
+        [
+            ("Similaridade", _fmt_percent(similaridade), "entre os participantes"),
+            ("Jogos comparados", _fmt_int(jogos_comparados), "com palpites dos dois"),
+            ("Palpites iguais", _fmt_int(palpites_iguais), "placar exatamente igual"),
+            ("Parciais", _fmt_int(palpites_parciais), "mesmo resultado"),
+            ("Diferentes", _fmt_int(palpites_diferentes), "resultado diferente"),
+            ("Cobertura", _fmt_percent(cobertura), "quando disponível"),
+        ],
+        columns=6,
+    )
+
+    pct_iguais = palpites_iguais / jogos_comparados if jogos_comparados else 0
+    pct_parciais = palpites_parciais / jogos_comparados if jogos_comparados else 0
+    pct_diferentes = palpites_diferentes / jogos_comparados if jogos_comparados else 0
+    st.markdown(
+        f"""
+        <div class="comparison-breakdown">
+          <div class="comparison-breakdown-title">Comparação dos palpites</div>
+          <div><span>{_pill("🟢 Iguais", "igual")}</span><strong>{_fmt_int(palpites_iguais)}</strong><em>{_fmt_percent(pct_iguais)}</em></div>
+          <div><span>{_pill("🟡 Parciais", "parcial")}</span><strong>{_fmt_int(palpites_parciais)}</strong><em>{_fmt_percent(pct_parciais)}</em></div>
+          <div><span>{_pill("🔴 Diferentes", "diferente")}</span><strong>{_fmt_int(palpites_diferentes)}</strong><em>{_fmt_percent(pct_diferentes)}</em></div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    taxa_igualdade = palpites_iguais / jogos_comparados if jogos_comparados else 0
+    nivel = _nivel_similaridade(float(similaridade)) if similaridade is not None and not pd.isna(similaridade) else "indefinida"
+    info_card(
+        "Resumo automático",
+        (
+            f"{USUARIO_ATUAL} e {participante} apresentaram similaridade {nivel.lower()} de palpites. "
+            f"Dos {jogos_comparados} jogos comparados, concordaram exatamente em {palpites_iguais} placares, "
+            f"tiveram {palpites_parciais} concordâncias parciais, com mesmo resultado previsto, "
+            f"e divergiram completamente em {palpites_diferentes} partidas."
+        ),
+    )
+
+    filtro_col, ordem_col = st.columns([1, 1])
+    with filtro_col:
+        filtro = st.radio(
+            "Filtrar comparação",
+            ["Todos", "Apenas iguais", "Apenas parciais", "Apenas diferentes"],
+            horizontal=True,
+            key=f"filtro_comparacao_{participante}",
+        )
+    with ordem_col:
+        ordem = st.selectbox(
+            "Ordenação",
+            ["Mais recentes primeiro", "Mais antigos primeiro"],
+            key=f"ordem_comparacao_{participante}",
+        )
+
+    tabela = comparacao.copy()
+    if filtro == "Apenas iguais":
+        tabela = tabela[tabela["situacao"] == "Igual"].copy()
+    elif filtro == "Apenas parciais":
+        tabela = tabela[tabela["situacao"] == "Parcial"].copy()
+    elif filtro == "Apenas diferentes":
+        tabela = tabela[tabela["situacao"] == "Diferente"].copy()
+
+    crescente = ordem == "Mais antigos primeiro"
+    if "_ordem_data" in tabela.columns and tabela["_ordem_data"].notna().any():
+        tabela = tabela.sort_values("_ordem_data", ascending=crescente)
+    elif "jogo_id" in tabela.columns:
+        tabela = tabela.sort_values("jogo_id", ascending=crescente)
+
+    st.markdown(
+        """
+        <div class="comparison-legend">
+          <span><strong>🟢 Igual</strong> mesmo placar</span>
+          <span><strong>🟡 Parcial</strong> placar diferente, mesmo resultado previsto</span>
+          <span><strong>🔴 Diferente</strong> resultado previsto diferente</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    _render_comparison_table(tabela)
+
+    insights = []
+    comunidade_teste = _comunidade_participante(output_dir, USUARIO_ATUAL)
+    if comunidade is not None and comunidade_teste is not None and str(comunidade) == str(comunidade_teste):
+        insights.append("Vocês pertencem à mesma comunidade de similaridade.")
+    insights.append(f"Concordaram exatamente no placar em {_fmt_percent(taxa_igualdade)} dos jogos comparados.")
+    if palpites_parciais:
+        insights.append(f"Tiveram {palpites_parciais} concordâncias parciais, com o mesmo resultado previsto.")
+    if palpites_diferentes:
+        insights.append(f"Divergiram completamente em {palpites_diferentes} partidas.")
+    if cobertura is not None and not pd.isna(cobertura):
+        insights.append(f"A cobertura da comparação é {_fmt_percent(cobertura)}.")
+
+    st.markdown(
+        "<div class=\"insights-card\"><strong>Insights</strong>"
+        + "".join(f"<div>{escape(item)}</div>" for item in insights)
+        + f"<div>Comunidade: {escape(str(comunidade_texto))}</div>"
+        + "</div>",
+        unsafe_allow_html=True,
+    )
+
+
 def _note(text: str) -> None:
     st.markdown(f'<div class="soft-note">{escape(text)}</div>', unsafe_allow_html=True)
 
@@ -768,7 +1092,48 @@ def page_meus_semelhantes(output_dir: Path) -> None:
                 "Nível": _nivel_similaridade(sim),
             }
         )
-    render_styled_table(rows, ["Participante", "Similaridade", "Jogos em comum", "Cobertura", "Nível"])
+
+    if "comparacao_participante" not in st.session_state:
+        st.session_state["comparacao_participante"] = None
+
+    st.markdown(
+        """
+        <div class="similarity-list-head">
+          <span>Participante</span>
+          <span>Similaridade</span>
+          <span>Jogos em comum</span>
+          <span>Cobertura</span>
+          <span>Nível</span>
+          <span>Ação</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    for idx, row in enumerate(rows):
+        participante = str(row["Participante"])
+        cols = st.columns([1.1, 0.85, 0.85, 0.8, 0.7, 0.95])
+        with cols[0]:
+            st.markdown(f'<div class="similarity-cell participant">{escape(participante)}</div>', unsafe_allow_html=True)
+        with cols[1]:
+            st.markdown(f'<div class="similarity-cell">{escape(str(row["Similaridade"]))}</div>', unsafe_allow_html=True)
+        with cols[2]:
+            st.markdown(f'<div class="similarity-cell">{escape(str(row["Jogos em comum"]))}</div>', unsafe_allow_html=True)
+        with cols[3]:
+            st.markdown(f'<div class="similarity-cell">{escape(str(row["Cobertura"]))}</div>', unsafe_allow_html=True)
+        with cols[4]:
+            nivel = str(row["Nível"])
+            nivel_class = nivel.lower().replace("é", "e")
+            st.markdown(
+                f'<div class="similarity-cell">{_pill(nivel, nivel_class)}</div>',
+                unsafe_allow_html=True,
+            )
+        with cols[5]:
+            if st.button("Ver comparação", key=f"comparar_{participante}_{idx}", use_container_width=True):
+                st.session_state["comparacao_participante"] = participante
+
+        if st.session_state.get("comparacao_participante") == participante:
+            with st.expander(f"Comparação de palpites: {USUARIO_ATUAL} e {participante}", expanded=True):
+                _render_comparacao_palpites(output_dir, participante)
 
 
 def page_grupos(output_dir: Path) -> None:
