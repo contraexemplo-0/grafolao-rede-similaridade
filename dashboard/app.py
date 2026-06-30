@@ -371,7 +371,7 @@ def _construir_grafo_interativo(output_dir: Path, sim_minima: float) -> nx.Graph
     return G
 
 
-def _arestas_p_teste(output_dir: Path, top_n: int) -> list[tuple[str, str, float]]:
+def _arestas_p_teste(output_dir: Path, top_n: int, sim_minima: float | None = None) -> list[tuple[str, str, float]]:
     pares = _table(output_dir, "pares_similaridade_final.csv")
     if pares.empty or not {"participante_u", "participante_v", "sim_final"}.issubset(pares.columns):
         return []
@@ -380,6 +380,10 @@ def _arestas_p_teste(output_dir: Path, top_n: int) -> list[tuple[str, str, float
     ].copy()
     if linhas.empty:
         return []
+    if sim_minima is not None:
+        linhas = linhas[linhas["sim_final"] >= sim_minima].copy()
+        if linhas.empty:
+            return []
     linhas["outro"] = linhas.apply(
         lambda row: row["participante_v"] if row["participante_u"] == USUARIO_ATUAL else row["participante_u"],
         axis=1,
@@ -388,11 +392,11 @@ def _arestas_p_teste(output_dir: Path, top_n: int) -> list[tuple[str, str, float
     return [(USUARIO_ATUAL, str(row["outro"]), float(row["sim_final"])) for _, row in linhas.iterrows()]
 
 
-def _filtrar_minha_rede(output_dir: Path, top_n: int) -> nx.Graph:
+def _filtrar_minha_rede(output_dir: Path, top_n: int, sim_minima: float) -> nx.Graph:
     atributos = _mapa_atributos_vertices(output_dir)
     G = nx.Graph()
     G.add_node(USUARIO_ATUAL, **atributos.get(USUARIO_ATUAL, {}))
-    for u, v, peso in _arestas_p_teste(output_dir, top_n):
+    for u, v, peso in _arestas_p_teste(output_dir, top_n, sim_minima):
         for participante in [u, v]:
             if participante not in G:
                 G.add_node(participante, **atributos.get(participante, {}))
@@ -411,6 +415,12 @@ def _filtrar_maior_componente(G: nx.Graph) -> nx.Graph:
 
 
 def _filtrar_global_simplificada(G: nx.Graph, limite_nos: int = 70) -> nx.Graph:
+    if G.number_of_edges() == 0:
+        return nx.Graph()
+
+    conectados = [node for node, grau in G.degree() if grau > 0]
+    G = G.subgraph(conectados).copy()
+
     if G.number_of_nodes() <= limite_nos:
         H = G.copy()
     else:
@@ -916,7 +926,7 @@ def page_mapa(output_dir: Path) -> None:
         mostrar_rotulos = st.checkbox("Exibir rótulos", value=False)
 
     if modo == "Minha rede":
-        G = _filtrar_minha_rede(output_dir, int(top_n))
+        G = _filtrar_minha_rede(output_dir, int(top_n), float(sim_minima))
     else:
         G_base = _construir_grafo_interativo(output_dir, float(sim_minima))
         if modo == "Maior componente":
